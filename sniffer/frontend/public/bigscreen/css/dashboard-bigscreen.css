@@ -1,0 +1,494 @@
+@charset "utf-8";
+
+/* 数码字体 */
+@font-face {
+  font-family: 'DigitalFont';
+  src: url('../font/DS-DIGI.TTF');
+}
+@font-face {
+  font-family: 'DigitalFontBold';
+  src: url('../font/DS-DIGIB.TTF');
+}
+
+/* 基础重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 大屏容器 */
+.bigscreen-dashboard {
+  width: 100%;
+  height: calc(100vh - 120px);
+  color: #f7ffff;
+  background: url(../img/bg.png) no-repeat center center;
+  background-size: cover;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  padding: 10px;
+}
+
+/* 公共样式 */
+.float-left { float: left; }
+.float-right { float: right; }
+.clear-fix::after {
+  content: '';
+  display: block;
+  clear: both;
+  overflow: hidden;
+  height: 0;
+}
+
+/* 顶部区域 */
+.bs-header {
+  width: 100%;
+  height: auto;
+  min-height: 45vh;
+  padding-top: 1vh;
+  margin-bottom: 2vh;
+}
+
+.bs-header .header-section {
+  float: left;
+  height: 45vh;
+  background: url(../img/Elechart_listsbg.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 1.5vh 1vw;
+}
+
+.bs-header .header-left {
+  width: 23%;
+  margin: 0 0.5%;
+}
+
+.bs-header .header-center {
+  width: 48%;
+  position: relative;
+  margin: 0 0.5%;
+}
+
+.bs-header .header-right {
+  width: 23%;
+  margin: 0 0.5%;
+}
+
+/* 标题样式 */
+.section-title {
+  font-size: 1.1vw;
+  font-weight: bold;
+  margin-bottom: 4vh;
+  opacity: 0.9;
+  letter-spacing: 0.5vh;
+}
+
+/* 统计卡片 */
+.stat-card {
+  background: url(../img/sameTitle.png) no-repeat center;
+  background-size: 100% 100%;
+  font-size: 1vw;
+  position: relative;
+  height: 7vh;
+  width: 90%;
+  margin: 0 auto;
+  line-height: 7vh;
+  text-align: center;
+}
+
+.stat-card:not(:first-of-type) {
+  margin-top: 2vh;
+}
+
+.stat-card .stat-count {
+  position: absolute;
+  display: inline-block;
+  height: 6.2vh;
+  line-height: 6.2vh;
+  width: 6.3vw;
+  left: 0;
+  top: 0;
+  color: #191970;
+}
+
+.stat-card .stat-count i {
+  font-size: 1.8vw;
+  font-family: 'DigitalFont', monospace;
+  font-style: normal;
+}
+
+.stat-card .stat-count em {
+  font-size: 0.5vw;
+  padding-left: 0.2vw;
+  font-style: normal;
+}
+
+.stat-card .stat-label {
+  position: absolute;
+  width: 9.5vw;
+  right: 1vw;
+  bottom: 0;
+  height: 6.2vh;
+  line-height: 6.2vh;
+}
+
+/* 中央标题区域 */
+.main-title {
+  text-align: center;
+  font-size: 2.2vw;
+  font-family: 'DigitalFontBold', monospace;
+  background: linear-gradient(135deg, #00d4ff 0%, #00b8ff 50%, #0090ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.3vw;
+  font-weight: bold;
+  margin-top: -1vh;
+  margin-bottom: 0.5vh;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
+}
+
+.sub-title {
+  margin-top: 1vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2vw;
+}
+
+.sub-title .left {
+  font-size: 2.5vh;
+  color: #9cc2ef;
+}
+
+.sub-title .right {
+  font-family: 'DigitalFont', monospace;
+  font-size: 2.11vh;
+  color: #6fd8f9;
+}
+
+/* 大数字显示 */
+.big-number-display {
+  height: 6vh;
+  line-height: 6vh;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  text-align: center;
+}
+
+.big-number-display .number-wrapper {
+  font-size: 1.8vw;
+  font-family: 'DigitalFont', monospace;
+  background: linear-gradient(135deg, #00ffea 0%, #00d4ff 50%, #0090ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  filter: drop-shadow(0 2px 8px rgba(0, 212, 255, 0.5));
+}
+
+.big-number-display .number-wrapper i {
+  font-style: normal;
+  display: inline-block;
+  width: 1.3vw;
+  text-align: center;
+}
+
+.big-number-display .unit {
+  margin-left: 0.5vw;
+  font-size: 1.3vw;
+  background: linear-gradient(135deg, #00ffea 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 图表容器 */
+.chart-container {
+  height: 26vh;
+  width: 100%;
+  margin-top: 1vh;
+}
+
+/* 右侧今日统计数字 */
+.today-stats-number {
+  text-align: center;
+  font-size: 2vw;
+  letter-spacing: 0.5vh;
+  font-family: 'DigitalFont', monospace;
+  color: #51cef6;
+  margin-bottom: 2vh;
+}
+
+.today-stats-number i {
+  font-style: normal;
+}
+
+.stats-text {
+  height: 9vh;
+  text-align: center;
+  line-height: 9vh;
+  color: #b2c9fb;
+}
+
+.stats-text .main-text {
+  font-size: 1.5vw;
+}
+
+.stats-text .sub-text {
+  font-size: 1vw;
+}
+
+/* 统计表格 */
+.stats-table {
+  width: 22vw;
+  margin: 0 auto;
+  font-size: 1.2vw;
+}
+
+.stats-table .table-row {
+  height: 9vh;
+  line-height: 9vh;
+  border-top: 0.1vh dashed #5c9ae3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-table .table-row:last-child {
+  border-bottom: 0.1vh dashed #5c9ae3;
+}
+
+.stats-table .table-row .label {
+  color: #9cc2ef;
+  font-weight: bold;
+  padding-left: 2vw;
+}
+
+.stats-table .table-row .value {
+  color: #6e9fd9;
+  font-weight: bold;
+  padding-right: 2vw;
+}
+
+.stats-table .table-row .value i {
+  font-family: 'DigitalFont', monospace;
+  font-weight: bold;
+  font-size: 2vw;
+  font-style: normal;
+}
+
+/* 底部区域 */
+.bs-footer {
+  height: auto;
+  min-height: 35vh;
+  width: 100%;
+  margin-top: 1vh;
+  display: flex;
+  gap: 1%;
+  padding: 0;
+}
+
+.bs-footer .footer-left {
+  width: 72%;
+  height: 35vh;
+  background: url(../img/Elechart_listsbg.png) no-repeat center;
+  background-size: 100% 100%;
+  padding: 1.5vh 1vw;
+  display: flex;
+  gap: 2%;
+}
+
+.bs-footer .footer-right {
+  width: 27%;
+  height: 35vh;
+  background: url(../img/Elechart_listsbg.png) no-repeat center;
+  background-size: 100% 100%;
+  padding: 1.5vh 1vw;
+}
+
+/* 图表区域 */
+.chart-wrapper {
+  flex: 1;
+}
+
+.chart-box {
+  width: 100%;
+  height: 25vh;
+}
+
+/* 排行榜 */
+.rank-list {
+  border-radius: 0.4vw;
+  font-size: 0.85vw;
+  overflow-y: auto;
+  height: 25vh;
+}
+
+.rank-list .rank-item {
+  height: 4.0vh;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.rank-list .rank-index {
+  text-align: center;
+  width: 1.1vw;
+  line-height: 1.2vw;
+  height: 1.2vw;
+  border-radius: 50%;
+  background: #03e9df;
+  color: #093144;
+  font-size: 0.8vw;
+  display: inline-block;
+}
+
+.rank-list .rank-name {
+  width: 8vw;
+  color: #9cc2ef;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rank-list .rank-bar {
+  flex: 1;
+  height: 1.6vh;
+  border: 0.06vw solid #43c4c8;
+  border-radius: 3vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.rank-list .rank-bar-fill {
+  background: linear-gradient(to right, #1194d3, #33FFDD, #0baedd, #91e8fc, #AAFFEE);
+  height: 100%;
+  border-radius: 3vw;
+}
+
+.rank-list .rank-value {
+  width: 8vw;
+  color: #057584;
+  text-align: right;
+  font-family: 'DigitalFont', monospace;
+}
+
+/* 实时数据流表格 */
+.live-table {
+  width: 100%;
+  border: 0.1vh solid #5c9ae3;
+  height: 29vh;
+  overflow: hidden;
+}
+
+.live-table .table-header {
+  height: 4vh;
+  line-height: 4vh;
+  font-size: 0.9vw;
+  border-bottom: 0.1vh #5c9ae3 solid;
+  display: flex;
+  background: rgba(92, 154, 227, 0.1);
+}
+
+.live-table .table-body {
+  font-size: 0.75vw;
+  max-height: 25vh;
+  overflow-y: auto;
+}
+
+.live-table .table-row {
+  height: 3.8vh;
+  line-height: 3.8vh;
+  display: flex;
+  border-bottom: 0.05vh solid rgba(92, 154, 227, 0.3);
+  transition: all 0.3s;
+}
+
+.live-table .table-row:hover {
+  background: rgba(81, 206, 246, 0.1);
+}
+
+.live-table .table-cell {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0.5vw;
+}
+
+.live-table .table-cell:nth-child(1) { width: 20%; color: #93d9cf; }
+.live-table .table-cell:nth-child(2) { width: 20%; color: #788f97; }
+.live-table .table-cell:nth-child(3) { width: 20%; color: #588cb3; }
+.live-table .table-cell:nth-child(4) { width: 15%; color: #6fc7e3; }
+.live-table .table-cell:nth-child(5) { width: 25%; color: #7eb368; }
+
+/* 滚动条美化 */
+.rank-list::-webkit-scrollbar,
+.table-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rank-list::-webkit-scrollbar-track,
+.table-body::-webkit-scrollbar-track {
+  background: rgba(23, 62, 105, 0.3);
+  border-radius: 3px;
+}
+
+.rank-list::-webkit-scrollbar-thumb,
+.table-body::-webkit-scrollbar-thumb {
+  background: rgba(92, 154, 227, 0.6);
+  border-radius: 3px;
+}
+
+.rank-list::-webkit-scrollbar-thumb:hover,
+.table-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(92, 154, 227, 0.9);
+}
+
+/* 数字翻牌动画 */
+@keyframes flip-number {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.8);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.number-flip {
+  animation: flip-number 0.6s ease-in-out;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 1600px) {
+  .section-title {
+    font-size: 14px;
+  }
+  .stat-card {
+    font-size: 12px;
+  }
+  .main-title {
+    font-size: 32px;
+  }
+}
+
+/* 发光效果 */
+.glow-text {
+  text-shadow: 0 0 10px rgba(111, 199, 227, 0.8),
+               0 0 20px rgba(111, 199, 227, 0.6),
+               0 0 30px rgba(111, 199, 227, 0.4);
+}
+
+.glow-box {
+  box-shadow: 0 0 15px rgba(81, 206, 246, 0.3),
+              inset 0 0 15px rgba(81, 206, 246, 0.1);
+}
+

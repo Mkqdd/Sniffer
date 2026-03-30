@@ -83,7 +83,6 @@ coverage/
 *.coverprofile
 
 # Compiled binaries
-sniffer
 sniffer.exe
 *.app
 
